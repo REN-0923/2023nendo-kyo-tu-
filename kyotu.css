@@ -1,0 +1,35 @@
+.content{
+    background-image : url( );
+}
+
+.title{
+    text-align: center;
+    font-size: 50px;
+    font-family: source-han-serif-japanese, serif;
+    font-weight: 500;
+    font-style: normal;
+    padding-top: 20px;
+}
+
+.time{
+    text-align: center;
+    font-size: 80px;
+    font-family: source-han-serif-japanese, serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.share{
+    text-align: center;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a{
+    color: #55acee;
+    font-weight: 600;
+}
