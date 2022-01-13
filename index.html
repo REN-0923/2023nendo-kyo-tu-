@@ -52,28 +52,23 @@
         h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
         })(document);
 
-        const link = `<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-text="2024年1月13日の共通テストまで${diff_hour}時間" data-size="large">Tweet</a>`;
+        //const link = `<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-text="2024年1月13日の共通テストまで${diff_hour}時間" data-size="large">Tweet</a>`;
+        const link = `<a href="https://twitter.com/share?url=https://ren-0923.github.io/2023nendo-kyo-tu-/&text=2024年1月13日の共通テストまで${diff_hour}時間!!" class="share-button"><i class="fab fa-twitter"></i>シェア</a>`;
     </script>
 </head>
+<div class=wrapper>
+    <div class="content">
+        <div class="title">
+            <p>2023年度大学入学共通テストまで</p>
+        </div>
 
-<div class="content">
+        <div class="time">
+            <p><script>document.write(diff_hour)</script>時間</p>
+        </div>
 
-    <div class="title">
-        <p>2023年度大学入学共通テストまで</p>
+        <div class="share">
+            <p><script>document.write(link)</script></p>
+        </div>
     </div>
-
-    <div class="time">
-        <p><script>document.write(diff_hour)</script>時間</p>
-    </div>
-
-    <div class="share">
-        <p><script>document.write(link)</script></p>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-
-    <div class="footer">
-        <p><a href="https://twitter.com/reso__pycache__"><i class="fab fa-twitter">@reso__pycache__</i></a></p>
-    </div>
-
-</div>
+</div> 
 
