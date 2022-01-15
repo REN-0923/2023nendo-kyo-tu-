@@ -1,10 +1,4 @@
-<head>
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="kyotu.css">
-    <script>
-        var date1 = new Date();
-        var date1_str = getStringFromDate(date1)
-        var date1_for_all_browsers = new Date(date1_str.replace(/-/g,"/"))
+<script>
 
         function getStringFromDate(date) {
  
@@ -32,19 +26,24 @@
         
         return format_str;
         };
-        var date2 = new Date('2024-01-13 00:00:00'.replace(/-/g,"/"));
-        var diff = date2.getTime() - date1_for_all_browsers.getTime();
-        var diff_second = diff / 1000
         
-        var count_time = function(){
+        window.onload = count_time = function(){
             var date1 = new Date();
             var date1_str = getStringFromDate(date1);
             var date1_for_all_browsers = new Date(date1_str.replace(/-/g,"/"));
             var date2 = new Date('2024-01-13 00:00:00'.replace(/-/g,"/"));
             var diff = date2.getTime() - date1_for_all_browsers.getTime();
             var diff_second = diff / 1000;
-            var target = document.getElementById("time-text");
-            target.innerHTML =  diff_second + "秒";
+            var target_p = document.getElementById("time-text");
+            var target_link = document.getElementById("share-link");
+            if(diff_second > 0){
+                target_p.innerHTML =  diff_second + "秒";
+                target_link.setAttribute("href", "https://twitter.com/share?url=https://ren-0923.github.io/2023nendo-kyo-tu-/&text=2024年1月13日の共通テストまで"+diff_second+"秒!!")
+            }else{
+                target_p.innerHTML = "こんなん見てんと勉強せい";
+                target_link.getAttribute("href", "https://twitter.com/share?url=https://ren-0923.github.io/2023nendo-kyo-tu-/&text=2024年1月13日の共通テスト当日!!")
+            };
+            return diff_second;
             };
         setInterval(function(){count_time()}, 1000);
 
@@ -59,8 +58,12 @@
         })(document);
 
         //const link = `<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-text="2024年1月13日の共通テストまで${diff_hour}時間" data-size="large">Tweet</a>`;
-        const link = `<a href="https://twitter.com/share?url=https://ren-0923.github.io/2023nendo-kyo-tu-/&text=2024年1月13日の共通テストまで${diff_second}秒!!" class="share-button"><i class="fab fa-twitter"></i>シェア</a>`;
+        const link = `<a href="https://twitter.com/share?url=https://ren-0923.github.io/2023nendo-kyo-tu-/&text=2024年1月13日の共通テストまで${function(){count_time()}}秒!!" class="share-button" id="share-link"><i class="fab fa-twitter"></i>シェア</a>`;
     </script>
+<head>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="kyotu.css">
+    
 </head>
 <div class=wrapper>
     <div class="content">
@@ -77,4 +80,6 @@
         </div>
     </div>
 </div> 
+
+
 
