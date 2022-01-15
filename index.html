@@ -34,16 +34,22 @@
         };
         var date2 = new Date('2024-01-13 00:00:00'.replace(/-/g,"/"));
         var diff = date2.getTime() - date1_for_all_browsers.getTime();
-        var diff_hour = parseInt(diff / (60*60*1000), 10)
-
-        //１分ごとにページ更新
-        const timer = 60000    // ミリ秒で間隔の時間を指定
-        window.addEventListener('load',function(){
-        setInterval('location.reload()',timer);
-                                                }); 
+        var diff_second = diff / 1000
+        
+        var count_time = function(){
+            var date1 = new Date();
+            var date1_str = getStringFromDate(date1);
+            var date1_for_all_browsers = new Date(date1_str.replace(/-/g,"/"));
+            var date2 = new Date('2024-01-13 00:00:00'.replace(/-/g,"/"));
+            var diff = date2.getTime() - date1_for_all_browsers.getTime();
+            var diff_second = diff / 1000;
+            var target = document.getElementById("time-text");
+            target.innerHTML =  diff_second + "秒";
+            };
+        setInterval(function(){count_time()}, 1000);
 
         //フォント設定
-            (function(d) {
+        var a =    (function(d) {
         var config = {
         kitId: 'ins6kmv',
         scriptTimeout: 3000,
@@ -53,7 +59,7 @@
         })(document);
 
         //const link = `<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-text="2024年1月13日の共通テストまで${diff_hour}時間" data-size="large">Tweet</a>`;
-        const link = `<a href="https://twitter.com/share?url=https://ren-0923.github.io/2023nendo-kyo-tu-/&text=2024年1月13日の共通テストまで${diff_hour}時間!!" class="share-button"><i class="fab fa-twitter"></i>シェア</a>`;
+        const link = `<a href="https://twitter.com/share?url=https://ren-0923.github.io/2023nendo-kyo-tu-/&text=2024年1月13日の共通テストまで${diff_second}秒!!" class="share-button"><i class="fab fa-twitter"></i>シェア</a>`;
     </script>
 </head>
 <div class=wrapper>
@@ -63,7 +69,7 @@
         </div>
 
         <div class="time">
-            <p><script>document.write(diff_hour)</script>時間</p>
+            <p id="time-text"></p>
         </div>
 
         <div class="share">
